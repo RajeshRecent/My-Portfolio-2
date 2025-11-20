@@ -63,11 +63,11 @@
         }
         section { margin-bottom: 2.5rem;}
 
-        /* Insurance Vertical-Scroll Carousel */
+        /* Carousel Styles */
         .carousel-section {
             background: var(--soft-warm-grey);
             border-radius: 14px;
-            padding: 2em 1em 2.5em 1em;
+            padding: 2em 1em 3.5em 1em;
             margin-bottom: 2.5rem;
             border: 1px solid var(--warm-taupe);
             position: relative;
@@ -77,27 +77,42 @@
             width: 100%;
             max-width: 700px;
             margin: 0 auto;
+            box-sizing: border-box;
         }
         .carousel-track {
             display: flex;
             flex-direction: row;
             transition: transform 0.3s ease;
             gap: 16px;
+            min-width: 0;
         }
         .carousel-card {
-            min-width: 200px;
+            width: 220px;
+            min-width: 220px;
+            max-width: 220px;
             background: var(--warm-taupe);
             color: var(--soft-warm-grey);
             flex-shrink: 0;
-            padding: 2em 1.2em;
+            padding: 1.5em 1em;
             border-radius: 10px;
             box-shadow: 0 2px 8px var(--dark-charcoal);
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
         .carousel-card h3 {
             color: var(--modern-orange);
+            margin-top: 0;
+            margin-bottom: 0.4em;
+            word-break: break-word;
+        }
+        .carousel-card p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+            word-break: break-word;
         }
         .carousel-controls {
             display: flex;
@@ -185,6 +200,11 @@
             padding: 1.2rem 0;
             letter-spacing: 0.5px;
         }
+        @media (max-width:800px) {
+            .container { padding: 1rem 0.5rem;}
+            .carousel-card { width: 95vw; min-width: 95vw; max-width: 95vw;}
+            .carousel-wrapper { max-width: 97vw;}
+        }
     </style>
 </head>
 <body>
@@ -257,17 +277,21 @@
         &copy; 2025 PlanWell Finance | Built for clarity, stability, and your peace of mind.
     </footer>
     <script>
-        // Carousel scroll functionality
+        // Improved carousel scroll with container alignment
         let scrollIndex = 0;
         function carouselScroll(dir) {
             const track = document.getElementById('carousel-track');
-            const cardWidth = track.querySelector('.carousel-card').offsetWidth + 16; // 16 is gap
-            const numCards = track.children.length;
+            const cards = track.querySelectorAll('.carousel-card');
+            const cardWidth = cards[0].offsetWidth + 16; // 16 is the gap
+            const numCards = cards.length;
+            const wrapper = track.parentElement;
+            const visibleCards = Math.floor(wrapper.offsetWidth / cardWidth) || 1;
             scrollIndex += dir;
             if (scrollIndex < 0) scrollIndex = 0;
-            if (scrollIndex > numCards - 1) scrollIndex = numCards - 1;
+            if (scrollIndex > numCards - visibleCards) scrollIndex = numCards - visibleCards;
             track.style.transform = 'translateX(' + (-scrollIndex * cardWidth) + 'px)';
         }
+        window.addEventListener('resize', () => { carouselScroll(0); });
     </script>
 </body>
 </html>
