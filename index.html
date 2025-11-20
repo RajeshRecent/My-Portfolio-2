@@ -6,130 +6,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
-            --magenta: #D72660;
-            --purple: #6930C3;
-            --light-blue: #90F1EF;
-            --white: #FFFFFF;
-            --shadow: rgba(0,0,0,0.1);
+            --dark-charcoal: #3F4037;
+            --soft-warm-grey: #E4E3DE;
+            --modern-orange: #F5831F;
+            --warm-taupe: #A1846E;
+            --rust-brown: #8C4227;
         }
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: var(--light-blue);}
-        header, footer {
-            background: var(--magenta);
-            color: var(--white);
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--soft-warm-grey);
+            color: var(--dark-charcoal);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        header {
+            background: var(--dark-charcoal);
+            padding: 2.5rem 0 1.5rem 0;
             text-align: center;
-            padding: 2rem 0 1rem 0;
+            color: var(--soft-warm-grey);
         }
-        img.logo { max-height: 90px; margin-bottom: 16px; }
+        img.logo {
+            max-height: 90px;
+            margin-bottom: 14px;
+        }
+        .slogans {
+            margin: 0.7em 0 0;
+            font-size: 1.15rem;
+            color: var(--soft-warm-grey);
+            font-style: italic;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.2em 0;
+            color: var(--modern-orange);
+            letter-spacing: 1px;
+        }
         .container {
             max-width: 900px;
             margin: 2rem auto;
-            background: var(--purple);
-            box-shadow: 0 2px 8px var(--shadow);
-            border-radius: 10px;
-            padding: 2.5rem;
-            color: var(--white);
+            background: var(--soft-warm-grey);
+            border-radius: 12px;
+            box-shadow: 0 2px 18px 0 var(--warm-taupe);
+            padding: 2.5rem 2rem;
         }
-        h1, h2, h3 { color: var(--white); }
-        h2.section-title {
-            background: var(--magenta);
-            padding: 0.5em 1em;
-            border-radius: 8px;
-            margin-bottom: 1.2em;
+        h2 {
+            color: var(--dark-charcoal);
+            font-size: 2rem;
+            margin-bottom: 0.7em;
+            border-bottom: 2px solid var(--warm-taupe);
+            padding-bottom: 0.2em;
         }
-        .slogans {
-            margin-bottom: 1.5rem;
-            font-style: italic;
+        h3 {
+            color: var(--rust-brown);
+            margin-bottom: 0.3em;
         }
-        section { margin-bottom: 2.5rem; }
-        /* Insurance carousel styles */
+        section { margin-bottom: 2.5rem;}
+
+        /* Insurance Vertical-Scroll Carousel */
         .carousel-section {
-            background: var(--light-blue);
-            padding: 2em 1em;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background: var(--soft-warm-grey);
+            border-radius: 14px;
+            padding: 2em 1em 2.5em 1em;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--warm-taupe);
+            position: relative;
         }
         .carousel-wrapper {
-            width: 100%;
-            max-width: 650px;
-            position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
         }
         .carousel-track {
             display: flex;
+            flex-direction: row;
             transition: transform 0.3s ease;
+            gap: 16px;
         }
         .carousel-card {
-            min-width: 250px;
-            background: var(--magenta);
-            color: var(--white);
-            border-radius: 8px;
+            min-width: 200px;
+            background: var(--warm-taupe);
+            color: var(--soft-warm-grey);
             flex-shrink: 0;
-            margin: 0 12px;
-            padding: 2em 1em;
-            box-shadow: 0 2px 4px var(--shadow);
+            padding: 2em 1.2em;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px var(--dark-charcoal);
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+        }
+        .carousel-card h3 {
+            color: var(--modern-orange);
         }
         .carousel-controls {
             display: flex;
             gap: 2rem;
-            margin: 1em 0 0 0;
+            position: absolute;
+            bottom: 1.2em;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .carousel-controls button {
-            background: var(--purple);
-            color: var(--white);
+            background: var(--modern-orange);
+            color: var(--soft-warm-grey);
             border: none;
             border-radius: 50%;
             width: 40px; height: 40px;
             font-size: 1.5rem;
             cursor: pointer;
+            transition: background 0.2s;
         }
-        .carousel-controls button:active {
-            background: var(--magenta);
+        .carousel-controls button:active, .carousel-controls button:hover {
+            background: var(--rust-brown);
+            color: var(--soft-warm-grey);
         }
-        /* Contact Form Styles */
+        /* Investments List */
+        ul {
+            padding-left: 18px;
+        }
+        ul li {
+            margin-bottom: 1.2em;
+            color: var(--dark-charcoal);
+        }
+        ul li strong {
+            color: var(--rust-brown);
+        }
+        /* Contact Form */
         form {
             display: flex;
             flex-direction: column;
             gap: 1rem;
             margin-top: 1em;
+            background: var(--soft-warm-grey);
+            border-radius: 10px;
+            border: 1px solid var(--warm-taupe);
+            padding: 1.5em;
         }
         input, textarea {
             padding: 0.7rem;
-            border-radius: 4px;
-            border: 1px solid var(--light-blue);
-            background: var(--purple);
-            color: var(--white);
+            border-radius: 5px;
+            border: 1px solid var(--warm-taupe);
+            background: var(--soft-warm-grey);
+            color: var(--dark-charcoal);
+        }
+        input:focus, textarea:focus {
+            outline: 2px solid var(--modern-orange);
         }
         input::placeholder, textarea::placeholder {
-            color: #eee;
+            color: var(--warm-taupe);
         }
         button[type="submit"] {
-            background: var(--magenta);
-            color: var(--white);
+            background: var(--modern-orange);
+            color: var(--soft-warm-grey);
+            font-weight: bold;
             padding: 0.7rem 1.2rem;
             border: none;
-            border-radius: 4px;
-            font-weight: bold;
+            border-radius: 6px;
             cursor: pointer;
+            font-size: 1.1rem;
+            transition: background 0.2s;
         }
         button[type="submit"]:hover {
-            background: var(--purple);
+            background: var(--rust-brown);
         }
         a, a:visited {
-            color: var(--light-blue);
+            color: var(--modern-orange);
+            text-decoration: none;
         }
         a:hover {
-            color: var(--magenta);
+            color: var(--rust-brown);
             text-decoration: underline;
         }
         footer {
+            background: var(--dark-charcoal);
+            color: var(--soft-warm-grey);
             margin-top: 2.5rem;
             padding: 1.2rem 0;
-            font-size: 1.1rem;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -145,35 +199,35 @@
     </header>
     <div class="container">
         <section>
-            <h2 class="section-title">Home</h2>
+            <h2>Home</h2>
             <p>
-                Welcome to <strong>PlanWell Finance</strong>, your trusted partner in navigating the complex world of financial planning. Our mission is to educate and empower you to make confident, informed choices about your financial future—no sales pressure, just authentic guidance. We compare products across the market and present clear, simple recommendations so you can select what suits your needs. Let us help you prepare today and profit tomorrow—with clarity, convenience, and peace of mind.
+                Welcome to <strong>PlanWell Finance</strong>, your trusted partner in navigating the evolving world of financial planning. Our mission is to empower and educate you to confidently make decisions about your financial future — no sales pressure, only honest guidance. By comparing products across the broad market, we deliver clear recommendations so you can select what truly fits your needs and life goals.
             </p>
         </section>
         <section>
-            <h2 class="section-title">About</h2>
+            <h2>About</h2>
             <p>
-                At PlanWell Finance, we believe in purposeful, transparent financial advice. The market is full of options, yet many investors feel uncertain or overwhelmed—often buying products without understanding their real benefits, maturity values, or redemption terms. Our approach is different: we guide you to truly know what you’re investing in, evaluate the actual growth and safety of each option, and avoid the common traps of over-marketed SIPs, mutual funds, or impulsive spending on social trends. 
+                At PlanWell Finance, we specialize in transparent advice and sound financial education. The investment landscape is crowded and noisy — people often buy products without understanding maturity values, redemption, or real benefits. We do things differently: you’ll always know what you’re investing in, how it grows, and how it fits into your health, retirement, and peace-of-mind planning.
             </p>
             <p>
-                We educate you on every aspect: health plans, retirement strategies, stable profit investments, coverage for medical and life events, and more. Whether you’re planning for mental well-being, a secure retirement, or effective wealth creation, our goal is to build your peace of mind through solid, smart financial planning. Don’t just follow the crowd—choose your financial path with understanding and confidence.
+                Our mission is to help you avoid impulsive decisions and market-driven trends; instead, we guide you to strategies for medical security, stable investment returns, and purposeful wealth creation. Choose to make financial planning about your life, not just about products.
             </p>
         </section>
         <section class="carousel-section">
-            <h2 class="section-title">Insurance Products</h2>
+            <h2>Insurance Products</h2>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="carousel-track">
                     <div class="carousel-card">
                         <h3>Life Insurance</h3>
-                        <p>Clear, simple plans for family protection. Honest advice about what’s covered and maturity benefits—no confusing fine print.</p>
+                        <p>Simple plans for true family security. Understand what’s covered and value at maturity—no confusing fine print.</p>
                     </div>
                     <div class="carousel-card">
                         <h3>Health Insurance</h3>
-                        <p>Comprehensive, transparent coverage for medical needs—understand exactly how your plan works and what it protects.</p>
+                        <p>Comprehensive and clear coverage for all your medical needs. Know exactly what your plan protects.</p>
                     </div>
                     <div class="carousel-card">
                         <h3>Term Insurance</h3>
-                        <p>Affordable, no-nonsense security with custom terms matched to your life stage and family goals.</p>
+                        <p>Affordable, tailored security with transparent terms matched to your life stage and goals.</p>
                     </div>
                 </div>
             </div>
@@ -183,14 +237,14 @@
             </div>
         </section>
         <section>
-            <h2 class="section-title">Investments</h2>
+            <h2>Investments</h2>
             <ul>
-                <li><strong>Mutual Funds:</strong> Only well-curated, goal-based recommendations without marketing hype.</li>
-                <li><strong>Other Investments:</strong> Honest analysis of long- and short-term options for stable growth.</li>
+                <li><strong>Mutual Funds:</strong> Carefully curated options—goal-based, with transparent growth and redemption details.</li>
+                <li><strong>Other Investments:</strong> Honest, unbiased analyses of long- and short-term alternatives for stable growth.</li>
             </ul>
         </section>
         <section>
-            <h2 class="section-title">Contact Me</h2>
+            <h2>Contact Me</h2>
             <form>
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
@@ -200,14 +254,14 @@
         </section>
     </div>
     <footer>
-        &copy; 2025 PlanWell Finance | Crafted with purpose for your peace of mind
+        &copy; 2025 PlanWell Finance | Built for clarity, stability, and your peace of mind.
     </footer>
     <script>
         // Carousel scroll functionality
         let scrollIndex = 0;
         function carouselScroll(dir) {
             const track = document.getElementById('carousel-track');
-            const cardWidth = track.querySelector('.carousel-card').offsetWidth + 24; // 24 is combined margin
+            const cardWidth = track.querySelector('.carousel-card').offsetWidth + 16; // 16 is gap
             const numCards = track.children.length;
             scrollIndex += dir;
             if (scrollIndex < 0) scrollIndex = 0;
