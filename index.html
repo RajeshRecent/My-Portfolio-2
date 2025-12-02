@@ -12,6 +12,9 @@
             --warm-taupe: #A1846E;
             --rust-brown: #8C4227;
         }
+        * {
+            box-sizing: border-box;
+        }
         body {
             margin: 0;
             padding: 0;
@@ -19,279 +22,345 @@
             color: var(--dark-charcoal);
             font-family: 'Segoe UI', Arial, sans-serif;
         }
+
+        /* HERO / HEADER (Anza-style, wide band) */
         header {
-            background: var(--dark-charcoal);
-            padding: 2.5rem 0 1.5rem 0;
-            text-align: center;
-            color: var(--soft-warm-grey);
+            background: var(--soft-warm-grey);
+            padding: 2.5rem 1.5rem 2rem 1.5rem;
+            border-bottom: 1px solid var(--warm-taupe);
+        }
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+            gap: 2.5rem;
+            align-items: center;
+        }
+        .brand-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .brand-top {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
         img.logo {
-            max-height: 90px;
-            margin-bottom: 14px;
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--warm-taupe);
+        }
+        .brand-name {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+        .brand-name h1 {
+            font-size: 2.1rem;
+            margin: 0;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--dark-charcoal);
+        }
+        .brand-tagline {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--rust-brown);
         }
         .slogans {
-            margin: 0.7em 0 0;
-            font-size: 1.15rem;
-            color: var(--soft-warm-grey);
             font-style: italic;
-        }
-        h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 0.2em 0;
-            color: var(--modern-orange);
-            letter-spacing: 1px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            background: var(--soft-warm-grey);
-            border-radius: 12px;
-            box-shadow: 0 2px 18px 0 var(--warm-taupe);
-            padding: 2.5rem 2rem;
-        }
-        h2 {
+            font-size: 0.98rem;
             color: var(--dark-charcoal);
-            font-size: 2rem;
-            margin-bottom: 0.7em;
-            border-bottom: 2px solid var(--warm-taupe);
-            padding-bottom: 0.2em;
         }
-        h3 {
-            color: var(--rust-brown);
-            margin-bottom: 0.3em;
+        .slogans div + div {
+            margin-top: 0.1rem;
         }
-        section { margin-bottom: 2.5rem;}
-
-        /* Carousel Styles */
-        .carousel-section {
+        .hero-about {
             background: var(--soft-warm-grey);
             border-radius: 14px;
-            padding: 2em 1em 3.5em 1em;
-            margin-bottom: 2.5rem;
             border: 1px solid var(--warm-taupe);
-            position: relative;
+            padding: 1.75rem 1.5rem;
         }
-        .carousel-wrapper {
-            overflow: hidden;
-            width: 100%;
-            max-width: 700px;
+        .hero-about-title {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--rust-brown);
+            margin-bottom: 0.6rem;
+        }
+        .hero-about p {
+            margin: 0;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* MAIN LAYOUT */
+        main {
+            padding: 2.5rem 1.5rem 3rem 1.5rem;
+        }
+        .main-inner {
+            max-width: 1000px;
             margin: 0 auto;
-            box-sizing: border-box;
-        }
-        .carousel-track {
-            display: flex;
-            flex-direction: row;
-            transition: transform 0.3s ease;
-            gap: 16px;
-            min-width: 0;
-        }
-        .carousel-card {
-            width: 220px;
-            min-width: 220px;
-            max-width: 220px;
-            background: var(--warm-taupe);
-            color: var(--soft-warm-grey);
-            flex-shrink: 0;
-            padding: 1.5em 1em;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px var(--dark-charcoal);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            overflow-wrap: break-word;
-            word-break: break-word;
+            gap: 2.5rem;
         }
-        .carousel-card h3 {
-            color: var(--modern-orange);
+        section {
+            background: var(--soft-warm-grey);
+            border-radius: 16px;
+            border: 1px solid var(--warm-taupe);
+            padding: 2rem 1.75rem;
+        }
+        section h2 {
             margin-top: 0;
-            margin-bottom: 0.4em;
-            word-break: break-word;
-        }
-        .carousel-card p {
-            margin: 0;
-            font-size: 1rem;
-            line-height: 1.4;
-            word-break: break-word;
-        }
-        .carousel-controls {
-            display: flex;
-            gap: 2rem;
-            position: absolute;
-            bottom: 1.2em;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .carousel-controls button {
-            background: var(--modern-orange);
-            color: var(--soft-warm-grey);
-            border: none;
-            border-radius: 50%;
-            width: 40px; height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .carousel-controls button:active, .carousel-controls button:hover {
-            background: var(--rust-brown);
-            color: var(--soft-warm-grey);
-        }
-        /* Investments List */
-        ul {
-            padding-left: 18px;
-        }
-        ul li {
-            margin-bottom: 1.2em;
+            margin-bottom: 0.7rem;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
             color: var(--dark-charcoal);
         }
-        ul li strong {
+        section p {
+            margin: 0.3rem 0;
+            line-height: 1.7;
+        }
+
+        /* INSURANCE “CARDS” – SIMPLE HORIZONTAL SCROLLER */
+        .cards-row {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-top: 0.5rem;
+            scroll-behavior: smooth;
+        }
+        .cards-row::-webkit-scrollbar {
+            height: 6px;
+        }
+        .cards-row::-webkit-scrollbar-track {
+            background: var(--soft-warm-grey);
+        }
+        .cards-row::-webkit-scrollbar-thumb {
+            background: var(--warm-taupe);
+        }
+        .card {
+            min-width: 240px;
+            max-width: 280px;
+            background: var(--warm-taupe);
+            border-radius: 12px;
+            padding: 1.4rem 1.2rem;
+            color: var(--soft-warm-grey);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--soft-warm-grey);
+        }
+        .card p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .card-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--dark-charcoal);
+            opacity: 0.75;
+        }
+
+        /* INVESTMENTS LIST */
+        ul {
+            padding-left: 1.1rem;
+            margin: 0.4rem 0 0 0;
+        }
+        li {
+            margin-bottom: 0.9rem;
+            line-height: 1.6;
+        }
+        li strong {
             color: var(--rust-brown);
         }
-        /* Contact Form */
+
+        /* CONTACT FORM */
         form {
+            margin-top: 1.2rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-top: 1em;
-            background: var(--soft-warm-grey);
-            border-radius: 10px;
-            border: 1px solid var(--warm-taupe);
-            padding: 1.5em;
+            gap: 0.9rem;
         }
         input, textarea {
-            padding: 0.7rem;
-            border-radius: 5px;
+            padding: 0.7rem 0.9rem;
+            border-radius: 6px;
             border: 1px solid var(--warm-taupe);
             background: var(--soft-warm-grey);
             color: var(--dark-charcoal);
+            font-size: 0.96rem;
         }
-        input:focus, textarea:focus {
-            outline: 2px solid var(--modern-orange);
-        }
-        input::placeholder, textarea::placeholder {
+        input::placeholder,
+        textarea::placeholder {
             color: var(--warm-taupe);
         }
+        input:focus,
+        textarea:focus {
+            outline: 2px solid var(--modern-orange);
+        }
         button[type="submit"] {
+            margin-top: 0.5rem;
+            align-self: flex-start;
             background: var(--modern-orange);
             color: var(--soft-warm-grey);
-            font-weight: bold;
-            padding: 0.7rem 1.2rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 24px;
             border: none;
-            border-radius: 6px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
             cursor: pointer;
-            font-size: 1.1rem;
-            transition: background 0.2s;
         }
         button[type="submit"]:hover {
             background: var(--rust-brown);
         }
-        a, a:visited {
-            color: var(--modern-orange);
-            text-decoration: none;
-        }
-        a:hover {
-            color: var(--rust-brown);
-            text-decoration: underline;
-        }
+
+        /* FOOTER */
         footer {
-            background: var(--dark-charcoal);
-            color: var(--soft-warm-grey);
-            margin-top: 2.5rem;
-            padding: 1.2rem 0;
-            letter-spacing: 0.5px;
+            border-top: 1px solid var(--warm-taupe);
+            padding: 1.3rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--dark-charcoal);
         }
-        @media (max-width:800px) {
-            .container { padding: 1rem 0.5rem;}
-            .carousel-card { width: 95vw; min-width: 95vw; max-width: 95vw;}
-            .carousel-wrapper { max-width: 97vw;}
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+            header {
+                padding-top: 2rem;
+            }
+            .brand-top {
+                justify-content: flex-start;
+            }
+        }
+        @media (max-width: 600px) {
+            section {
+                padding: 1.6rem 1.2rem;
+            }
+            .hero-about {
+                padding: 1.4rem 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="image.jpg" class="logo" alt="PlanWell Finance Logo">
-        <h1>PlanWell Finance</h1>
-        <div class="slogans">
-            <div>“Prepare Today, Profit Tomorrow”</div>
-            <div>“Financial Planning with Purpose”</div>
-            <div>“Peace of Mind Through Smart Planning”</div>
-        </div>
-    </header>
-    <div class="container">
-        <section>
-            <h2>Home</h2>
-            <p>
-                Welcome to <strong>PlanWell Finance</strong>, your trusted partner in navigating the evolving world of financial planning. Our mission is to empower and educate you to confidently make decisions about your financial future — no sales pressure, only honest guidance. By comparing products across the broad market, we deliver clear recommendations so you can select what truly fits your needs and life goals.
-            </p>
-        </section>
-        <section>
-            <h2>About</h2>
-            <p>
-                At PlanWell Finance, we specialize in transparent advice and sound financial education. The investment landscape is crowded and noisy — people often buy products without understanding maturity values, redemption, or real benefits. We do things differently: you’ll always know what you’re investing in, how it grows, and how it fits into your health, retirement, and peace-of-mind planning.
-            </p>
-            <p>
-                Our mission is to help you avoid impulsive decisions and market-driven trends; instead, we guide you to strategies for medical security, stable investment returns, and purposeful wealth creation. Choose to make financial planning about your life, not just about products.
-            </p>
-        </section>
-        <section class="carousel-section">
-            <h2>Insurance Products</h2>
-            <div class="carousel-wrapper">
-                <div class="carousel-track" id="carousel-track">
-                    <div class="carousel-card">
-                        <h3>Life Insurance</h3>
-                        <p>Simple plans for true family security. Understand what’s covered and value at maturity—no confusing fine print.</p>
-                    </div>
-                    <div class="carousel-card">
-                        <h3>Health Insurance</h3>
-                        <p>Comprehensive and clear coverage for all your medical needs. Know exactly what your plan protects.</p>
-                    </div>
-                    <div class="carousel-card">
-                        <h3>Term Insurance</h3>
-                        <p>Affordable, tailored security with transparent terms matched to your life stage and goals.</p>
+        <div class="hero-inner">
+            <div class="brand-block">
+                <div class="brand-top">
+                    <img src="image.jpg" class="logo" alt="PlanWell Finance Logo">
+                    <div class="brand-name">
+                        <h1>PlanWell Finance</h1>
+                        <div class="brand-tagline">Financial planning with purpose</div>
                     </div>
                 </div>
+                <div class="slogans">
+                    <div>“Prepare Today, Profit Tomorrow”</div>
+                    <div>“Peace of Mind Through Smart Planning”</div>
+                </div>
             </div>
-            <div class="carousel-controls">
-                <button onclick="carouselScroll(-1)" aria-label="Scroll Left">&#8592;</button>
-                <button onclick="carouselScroll(1)" aria-label="Scroll Right">&#8594;</button>
+            <div class="hero-about">
+                <div class="hero-about-title">About your adviser</div>
+                <p>
+                    Money choices are personal, so the first step is always getting to know you. As a financial adviser, the focus is on listening to your goals, how you feel about risk, and the types of investments you’re comfortable with. From there, you receive clear, simple plans that fit your life and priorities, without pressure or jargon. The aim is to give steady, practical guidance you can trust and to be someone you can come back to as your needs and plans change over time.
+                </p>
             </div>
-        </section>
-        <section>
-            <h2>Investments</h2>
-            <ul>
-                <li><strong>Mutual Funds:</strong> Carefully curated options—goal-based, with transparent growth and redemption details.</li>
-                <li><strong>Other Investments:</strong> Honest, unbiased analyses of long- and short-term alternatives for stable growth.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Contact Me</h2>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="4" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-inner">
+            <section id="home">
+                <h2>Home</h2>
+                <p>
+                    Welcome to <strong>PlanWell Finance</strong>, a space designed to make financial planning feel grounded, clear, and practical. Instead of pushing products, the focus is on helping you understand your options, compare them side by side, and choose only what truly supports your goals.
+                </p>
+                <p>
+                    Whether you are planning for health security, retirement stability, or steady long-term growth, every conversation starts with your comfort level and priorities. You get straightforward explanations, realistic scenarios, and a calm, step-by-step approach to decision-making.
+                </p>
+            </section>
+
+            <section id="about">
+                <h2>Approach</h2>
+                <p>
+                    Many people feel pressured into investments they only half understand, or follow trends like SIPs, mutual funds, or big-ticket purchases just because “everyone else is doing it.” Here, the goal is to slow things down and look at your entire financial picture in a more mindful way.
+                </p>
+                <p>
+                    Together, you explore how each product actually works—its maturity value, redemption rules, risks, and role in your life. The intention is to align your health, retirement, emergency, and growth planning into one coherent path, instead of scattered decisions driven by market noise.
+                </p>
+            </section>
+
+            <section id="insurance">
+                <h2>Insurance Products</h2>
+                <p class="card-label">Explore one at a time</p>
+                <div class="cards-row">
+                    <article class="card">
+                        <h3>Life Insurance</h3>
+                        <p>
+                            Long-term protection that puts clarity first: you’ll know exactly what is covered, how benefits build, and how the policy fits into your family’s long-range security.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Health Insurance</h3>
+                        <p>
+                            Coverage designed around real medical needs, not just brochure terms—so you understand limits, inclusions, and how claims work before you ever need to use it.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Term Insurance</h3>
+                        <p>
+                            Straightforward, cost-effective protection for specific years of your life, aligned with key milestones like loans, education, or dependents’ needs.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="investments">
+                <h2>Investments</h2>
+                <p>
+                    Investment plans are built to balance stability and growth, with a clear understanding of where risk is present and why it may be worth taking—or not—for your situation.
+                </p>
+                <ul>
+                    <li><strong>Mutual funds:</strong> Used selectively, with attention to costs, objectives, and how each fund fits into your wider plan, not just short-term performance.</li>
+                    <li><strong>Other options:</strong> From safer instruments to carefully chosen growth assets, each choice is explained in plain language so you can decide with confidence.</li>
+                </ul>
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>
+                    If you would like to discuss your current plans, start fresh, or simply ask a few questions, share your details below. You will receive calm, considered guidance—never rushed decisions.
+                </p>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="4" placeholder="Tell me a bit about your goals or questions" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
     <footer>
-        &copy; 2025 PlanWell Finance | Built for clarity, stability, and your peace of mind.
+        &copy; 2025 PlanWell Finance · Thoughtful financial planning, at your pace.
     </footer>
-    <script>
-        // Improved carousel scroll with container alignment
-        let scrollIndex = 0;
-        function carouselScroll(dir) {
-            const track = document.getElementById('carousel-track');
-            const cards = track.querySelectorAll('.carousel-card');
-            const cardWidth = cards[0].offsetWidth + 16; // 16 is the gap
-            const numCards = cards.length;
-            const wrapper = track.parentElement;
-            const visibleCards = Math.floor(wrapper.offsetWidth / cardWidth) || 1;
-            scrollIndex += dir;
-            if (scrollIndex < 0) scrollIndex = 0;
-            if (scrollIndex > numCards - visibleCards) scrollIndex = numCards - visibleCards;
-            track.style.transform = 'translateX(' + (-scrollIndex * cardWidth) + 'px)';
-        }
-        window.addEventListener('resize', () => { carouselScroll(0); });
-    </script>
 </body>
 </html>
