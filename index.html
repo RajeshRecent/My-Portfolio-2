@@ -12,9 +12,7 @@
             --warm-taupe: #A1846E;
             --rust-brown: #8C4227;
         }
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             margin: 0;
             padding: 0;
@@ -23,11 +21,28 @@
             font-family: 'Segoe UI', Arial, sans-serif;
         }
 
-        /* HERO / HEADER (Anza-style, wide band) */
+        /* HERO / HEADER WITH IMAGE */
         header {
-            background: var(--soft-warm-grey);
-            padding: 2.5rem 1.5rem 2rem 1.5rem;
+            position: relative;
+            overflow: hidden;
             border-bottom: 1px solid var(--warm-taupe);
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('hero-bg.jpg') center/cover no-repeat;
+            filter: brightness(0.75);
+            opacity: 0.85;
+        }
+        .hero-overlay {
+            position: relative;
+            padding: 3rem 1.5rem 2.5rem 1.5rem;
+            background: linear-gradient(
+                to right,
+                rgba(63,64,55,0.88),
+                rgba(63,64,55,0.78),
+                rgba(63,64,55,0.6)
+            );
         }
         .hero-inner {
             max-width: 1100px;
@@ -36,11 +51,12 @@
             grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
             gap: 2.5rem;
             align-items: center;
+            color: var(--soft-warm-grey);
         }
         .brand-block {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1rem;
         }
         .brand-top {
             display: flex;
@@ -64,27 +80,28 @@
             margin: 0;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--dark-charcoal);
+            color: var(--soft-warm-grey);
         }
         .brand-tagline {
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.18em;
-            color: var(--rust-brown);
+            color: var(--modern-orange);
         }
         .slogans {
             font-style: italic;
             font-size: 0.98rem;
-            color: var(--dark-charcoal);
+            color: var(--soft-warm-grey);
         }
         .slogans div + div {
             margin-top: 0.1rem;
         }
         .hero-about {
-            background: var(--soft-warm-grey);
+            background: rgba(228,227,222,0.96);
             border-radius: 14px;
             border: 1px solid var(--warm-taupe);
             padding: 1.75rem 1.5rem;
+            color: var(--dark-charcoal);
         }
         .hero-about-title {
             font-size: 0.95rem;
@@ -129,7 +146,25 @@
             line-height: 1.7;
         }
 
-        /* INSURANCE “CARDS” – SIMPLE HORIZONTAL SCROLLER */
+        /* HOME SECTION IMAGE INLINE */
+        .home-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+            gap: 1.8rem;
+            align-items: center;
+        }
+        .home-image-wrap {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--warm-taupe);
+        }
+        .home-image {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* INSURANCE CARDS ROW WITH ICON IMAGE OPTION */
         .cards-row {
             display: flex;
             gap: 1rem;
@@ -137,15 +172,9 @@
             padding-top: 0.5rem;
             scroll-behavior: smooth;
         }
-        .cards-row::-webkit-scrollbar {
-            height: 6px;
-        }
-        .cards-row::-webkit-scrollbar-track {
-            background: var(--soft-warm-grey);
-        }
-        .cards-row::-webkit-scrollbar-thumb {
-            background: var(--warm-taupe);
-        }
+        .cards-row::-webkit-scrollbar { height: 6px; }
+        .cards-row::-webkit-scrollbar-track { background: var(--soft-warm-grey); }
+        .cards-row::-webkit-scrollbar-thumb { background: var(--warm-taupe); }
         .card {
             min-width: 240px;
             max-width: 280px;
@@ -155,12 +184,11 @@
             color: var(--soft-warm-grey);
             display: flex;
             flex-direction: column;
-            gap: 0.4rem;
+            gap: 0.5rem;
         }
         .card h3 {
             margin: 0;
             font-size: 1.1rem;
-            color: var(--soft-warm-grey);
         }
         .card p {
             margin: 0;
@@ -171,11 +199,27 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.16em;
-            color: var(--dark-charcoal);
-            opacity: 0.75;
+            color: var(--rust-brown);
+            opacity: 0.85;
         }
 
-        /* INVESTMENTS LIST */
+        /* INVESTMENTS WITH SIDE IMAGE */
+        .invest-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+            gap: 1.8rem;
+            align-items: center;
+        }
+        .invest-image-wrap {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--warm-taupe);
+        }
+        .invest-image {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
         ul {
             padding-left: 1.1rem;
             margin: 0.4rem 0 0 0;
@@ -184,13 +228,28 @@
             margin-bottom: 0.9rem;
             line-height: 1.6;
         }
-        li strong {
-            color: var(--rust-brown);
-        }
+        li strong { color: var(--rust-brown); }
 
-        /* CONTACT FORM */
+        /* CONTACT WITH BACKGROUND IMAGE STRIP */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 1.8rem;
+            align-items: stretch;
+        }
+        .contact-note {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--warm-taupe);
+        }
+        .contact-note img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
         form {
-            margin-top: 1.2rem;
+            margin-top: 0.5rem;
             display: flex;
             flex-direction: column;
             gap: 0.9rem;
@@ -229,7 +288,6 @@
             background: var(--rust-brown);
         }
 
-        /* FOOTER */
         footer {
             border-top: 1px solid var(--warm-taupe);
             padding: 1.3rem 1.5rem;
@@ -239,49 +297,51 @@
         }
 
         /* RESPONSIVE */
-        @media (max-width: 850px) {
+        @media (max-width: 900px) {
             .hero-inner {
                 grid-template-columns: 1fr;
                 gap: 1.8rem;
             }
-            header {
-                padding-top: 2rem;
-            }
-            .brand-top {
-                justify-content: flex-start;
+            .home-layout,
+            .invest-layout,
+            .contact-layout {
+                grid-template-columns: 1fr;
             }
         }
         @media (max-width: 600px) {
+            .hero-overlay {
+                padding: 2.5rem 1.2rem 2.2rem 1.2rem;
+            }
             section {
                 padding: 1.6rem 1.2rem;
-            }
-            .hero-about {
-                padding: 1.4rem 1.2rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="hero-inner">
-            <div class="brand-block">
-                <div class="brand-top">
-                    <img src="image.jpg" class="logo" alt="PlanWell Finance Logo">
-                    <div class="brand-name">
-                        <h1>PlanWell Finance</h1>
-                        <div class="brand-tagline">Financial planning with purpose</div>
+        <div class="hero-bg"></div>
+        <div class="hero-overlay">
+            <div class="hero-inner">
+                <div class="brand-block">
+                    <div class="brand-top">
+                        <img src="advisor-portrait.jpg" class="logo" alt="PlanWell Finance Logo">
+                        <div class="brand-name">
+                            <h1>PlanWell Finance</h1>
+                            <div class="brand-tagline">Financial planning with purpose</div>
+                        </div>
+                    </div>
+                    <div class="slogans">
+                        <div>“Prepare Today, Profit Tomorrow”</div>
+                        <div>“Peace of Mind Through Smart Planning”</div>
                     </div>
                 </div>
-                <div class="slogans">
-                    <div>“Prepare Today, Profit Tomorrow”</div>
-                    <div>“Peace of Mind Through Smart Planning”</div>
+                <div class="hero-about">
+                    <div class="hero-about-title">About your adviser</div>
+                    <p>
+                        Money choices are personal, so the first step is always getting to know you. As a financial adviser, the focus is on listening to your goals, how you feel about risk, and the types of investments you’re comfortable with. From there, you receive clear, simple plans that fit your life and priorities, without pressure or jargon. The aim is to give steady, practical guidance you can trust and to be someone you can come back to as your needs and plans change over time.
+                    </p>
                 </div>
-            </div>
-            <div class="hero-about">
-                <div class="hero-about-title">About your adviser</div>
-                <p>
-                    Money choices are personal, so the first step is always getting to know you. As a financial adviser, the focus is on listening to your goals, how you feel about risk, and the types of investments you’re comfortable with. From there, you receive clear, simple plans that fit your life and priorities, without pressure or jargon. The aim is to give steady, practical guidance you can trust and to be someone you can come back to as your needs and plans change over time.
-                </p>
             </div>
         </div>
     </header>
@@ -290,12 +350,19 @@
         <div class="main-inner">
             <section id="home">
                 <h2>Home</h2>
-                <p>
-                    Welcome to <strong>PlanWell Finance</strong>, a space designed to make financial planning feel grounded, clear, and practical. Instead of pushing products, the focus is on helping you understand your options, compare them side by side, and choose only what truly supports your goals.
-                </p>
-                <p>
-                    Whether you are planning for health security, retirement stability, or steady long-term growth, every conversation starts with your comfort level and priorities. You get straightforward explanations, realistic scenarios, and a calm, step-by-step approach to decision-making.
-                </p>
+                <div class="home-layout">
+                    <div>
+                        <p>
+                            Welcome to <strong>PlanWell Finance</strong>, a space designed to make financial planning feel grounded, clear, and practical. Instead of pushing products, the focus is on helping you understand your options, compare them side by side, and choose only what truly supports your goals.
+                        </p>
+                        <p>
+                            Whether you are planning for health security, retirement stability, or steady long-term growth, every conversation starts with your comfort level and priorities. You get straightforward explanations, realistic scenarios, and a calm, step-by-step approach to decision-making.
+                        </p>
+                    </div>
+                    <div class="home-image-wrap">
+                        <img src="planning-collage.jpg" alt="Financial planning discussion" class="home-image">
+                    </div>
+                </div>
             </section>
 
             <section id="about">
@@ -335,26 +402,40 @@
 
             <section id="investments">
                 <h2>Investments</h2>
-                <p>
-                    Investment plans are built to balance stability and growth, with a clear understanding of where risk is present and why it may be worth taking—or not—for your situation.
-                </p>
-                <ul>
-                    <li><strong>Mutual funds:</strong> Used selectively, with attention to costs, objectives, and how each fund fits into your wider plan, not just short-term performance.</li>
-                    <li><strong>Other options:</strong> From safer instruments to carefully chosen growth assets, each choice is explained in plain language so you can decide with confidence.</li>
-                </ul>
+                <div class="invest-layout">
+                    <div>
+                        <p>
+                            Investment plans are built to balance stability and growth, with a clear understanding of where risk is present and why it may be worth taking—or not—for your situation.
+                        </p>
+                        <ul>
+                            <li><strong>Mutual funds:</strong> Used selectively, with attention to costs, objectives, and how each fund fits into your wider plan, not just short-term performance.</li>
+                            <li><strong>Other options:</strong> From safer instruments to carefully chosen growth assets, each choice is explained in plain language so you can decide with confidence.</li>
+                        </ul>
+                    </div>
+                    <div class="invest-image-wrap">
+                        <img src="planning-collage.jpg" alt="Investment planning visuals" class="invest-image">
+                    </div>
+                </div>
             </section>
 
             <section id="contact">
                 <h2>Contact</h2>
-                <p>
-                    If you would like to discuss your current plans, start fresh, or simply ask a few questions, share your details below. You will receive calm, considered guidance—never rushed decisions.
-                </p>
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea rows="4" placeholder="Tell me a bit about your goals or questions" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
+                <div class="contact-layout">
+                    <div>
+                        <p>
+                            If you would like to discuss your current plans, start fresh, or simply ask a few questions, share your details below. You will receive calm, considered guidance—never rushed decisions.
+                        </p>
+                        <form>
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Your Email" required>
+                            <textarea rows="4" placeholder="Tell me a bit about your goals or questions" required></textarea>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="contact-note">
+                        <img src="contact-note.jpg" alt="Notebook and pen for planning">
+                    </div>
+                </div>
             </section>
         </div>
     </main>
